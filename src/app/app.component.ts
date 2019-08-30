@@ -8,5 +8,8 @@ import { Usuario } from './model/usuario';
 })
 export class AppComponent {
   title = 'JooLaAngular';
-  usuarios: Array<Usuario>;
+  //usuarios: Array<Usuario> = [
+    //{uid: "1", nome: "Naruto", email: "naruto@gmail.com", psw: "11111"},
+    //{uid: "2", nome: "Ruffy", email: "Ruffy@gmail.com", psw: "22222"}
+  //];
 }

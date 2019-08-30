@@ -1,25 +1,27 @@
 <section>
-    <form (ngSubmit)="onsubmit()">
+    <form #fc=ngForm (ngSubmit)="onsubmit(fc)">
     <div class="form-group">
         <label for=""></label>
-        <input type="text" class="form-control" placeholder="Nome" [(ngModel)] ="usuario.nome" name="nome">
+        <input type="text" class="form-control" required placeholder="Nome" [(ngModel)] ="usuario.nome" name="nome">
         <small class="form-text text-muted"></small>
     </div>
     <div class="form-group">
         <label for=""></label>
-        <input type="email" class="form-control" placeholder="E-mail" [(ngModel)] ="usuario.email" name="email">
+        <input type="email" class="form-control" required placeholder="E-mail" [(ngModel)] ="usuario.email" name="email">
     </div>
     <div class="form-group">
         <label for=""></label>
-        <input type="password" class="form-control" placeholder="Senha" [(ngModel)] ="usuario.senha" name="psw">
+        <input type="password" class="form-control" required name="psw" #psw="ngModel" minlength="6" placeholder="Senha" [(ngModel)] ="usuario.senha">
+        <small class="form-text text-danger font-weight-bold" *ngIf="psw.invalid && psw.dirty">Senha muito curta!</small>
     </div>
     <div class="form-group">
         <label for=""></label>
-        <input type="password" class="form-control" placeholder="Confirmar Senha">
+        <input type="password" class="form-control" #conf="ngModel" name="conf" (ngModel)="conf" required placeholder="Confirmar Senha">
+        <small class="form-text text-danger font-weight-bold" *ngIf="psw.value != conf.value">Senhas diferentes</small>
     </div>
     <div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-        <button type="reset" class="btn btn-primary ml-2">Cancelar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="fc.invalid || psw.value != conf.value">Salvar</button>
+        <button type="reset" class="btn btn-primary ml-2" routerLink="\">Cancelar</button>
     </div>
     </form>
 </section>
