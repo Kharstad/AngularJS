@@ -23,11 +23,18 @@ export class AddUsuarioComponent implements OnInit {
   }
   onsubmit(form){
     console.log(form);
-    this.usuarioService.save(this.usuario);
+    this.usuarioService.save(this.usuario).subscribe(
+      res =>{
+        console.log(res);
+      },
+      err =>{
+        console.log(err);
+      }
+    );
     this.usuario = new Usuario;
-    console.log(this.usuario, this.usuarioService.usuarios);
+    //console.log(this.usuario, this.usuarioService.usuarios);
     form.reset();
-    this.router.navigate(["/"])
+    //this.router.navigate(["/"])
 
   }
 }
