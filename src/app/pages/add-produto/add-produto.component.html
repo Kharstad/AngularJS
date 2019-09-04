@@ -1,0 +1,28 @@
+<section>
+    <form #fc=ngForm (ngSubmit)="onsubmit(fc)">
+    <div class="form-group">
+        <label for=""></label>
+        <input type="text" class="form-control" required placeholder="Nome" [(ngModel)] ="produto.nome" name="nome">
+        <small class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for=""></label>
+        <input type="text" class="form-control" required placeholder="descrição" [(ngModel)] ="produto.email" name="descrição">
+    </div>
+    <div class="form-group">
+        <label for=""></label>
+        <input type="number" class="form-control" required name="quantidade" #qntd="ngModel" min="1" placeholder="Quantidade" [(ngModel)] ="produto.quantidade">
+        <small class="form-text text-danger font-weight-bold" *ngIf="qntd.invalid">Quantidade Inválida</small>
+    </div>
+    <div class="form-group">
+        <label for=""></label>
+        <input type="number" class="form-control" required name="valor" #vlr="ngModel" min="1" placeholder="Valor" [(ngModel)] ="produto.valor">
+        <small class="form-text text-danger font-weight-bold" *ngIf="vlr.invalid">Quantidade Inválida</small>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" [disabled]="fc.invalid || qntd.invalid || vlr.invalid">Salvar</button>
+        <button type="reset" class="btn btn-primary ml-2" routerLink="\">Cancelar</button>
+    </div>
+    </form>
+</section>
+<app-list-produto></app-list-produto>
