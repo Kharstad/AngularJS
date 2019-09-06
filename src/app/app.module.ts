@@ -9,7 +9,8 @@ import { AddUsuarioComponent } from './pages/add-usuario/add-usuario.component';
 import { FormsModule } from "@angular/forms";
 import { ListUsuarioComponent } from './pages/list-usuario/list-usuario.component';
 import { AddProdutoComponent } from './pages/add-produto/add-produto.component';
-import { ListProdutoComponent } from './pages/list-produto/list-produto.component'
+import { ListProdutoComponent } from './pages/list-produto/list-produto.component';
+import { AddEnderecoComponent } from './pages/add-endereco/add-endereco.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ListProdutoComponent } from './pages/list-produto/list-produto.componen
     AddUsuarioComponent,
     ListUsuarioComponent,
     AddProdutoComponent,
-    ListProdutoComponent
+    ListProdutoComponent,
+    AddEnderecoComponent
   ],
   imports: [
     BrowserModule,

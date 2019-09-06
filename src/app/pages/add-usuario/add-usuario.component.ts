@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../model/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
+import { Endereco } from '../../model/endereco';
 
 @Component({
   selector: 'app-add-usuario',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class AddUsuarioComponent implements OnInit {
 
   usuario:Usuario = new Usuario;
-// @Input() usuarios:Usuario[] = []
+  public endereco: Endereco = new Endereco;
 
   constructor(
     public usuarioService: UsuarioService,
@@ -23,6 +24,7 @@ export class AddUsuarioComponent implements OnInit {
   }
   onsubmit(form){
     console.log(form);
+    this.usuario.endereco = this.endereco
     this.usuarioService.save(this.usuario).subscribe(
       res =>{
         console.log(res);

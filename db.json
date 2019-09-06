@@ -29,6 +29,19 @@
       "email": "Black@gmail.com",
       "senha": "888888",
       "id": 5
+    },
+    {
+      "endereco": {
+        "cep": "26545-192",
+        "logradouro": "Esss",
+        "bairro": "aaaa",
+        "localidade": "ree",
+        "uf": "rj"
+      },
+      "nome": "Goku",
+      "email": "asas",
+      "senha": "123456",
+      "id": 6
     }
   ],
   "produtos": [
