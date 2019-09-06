@@ -34,6 +34,38 @@
   "produtos": [
     {
       "id": 0
+    },
+    {
+      "ativo": true,
+      "nome": "D",
+      "descricao": "ddd",
+      "quantidade": 12,
+      "valor": 43,
+      "id": 1
+    },
+    {
+      "ativo": true,
+      "nome": "Omowa",
+      "descricao": "aaa",
+      "quantidade": 22,
+      "valor": 333,
+      "id": 2
+    },
+    {
+      "ativo": false,
+      "nome": "Goku",
+      "descricao": "Black",
+      "quantidade": 2,
+      "valor": 300,
+      "id": 3
+    },
+    {
+      "ativo": true,
+      "nome": "Ruffles",
+      "descricao": "De",
+      "quantidade": 3,
+      "valor": 66,
+      "id": 4
     }
   ]
 }

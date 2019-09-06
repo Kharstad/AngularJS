@@ -7,17 +7,22 @@
     </div>
     <div class="form-group">
         <label for=""></label>
-        <input type="text" class="form-control" required placeholder="descrição" [(ngModel)] ="produto.email" name="descrição">
+        <input type="text" class="form-control" required placeholder="descrição" [(ngModel)] ="produto.descricao" name="descrição">
     </div>
     <div class="form-group">
         <label for=""></label>
         <input type="number" class="form-control" required name="quantidade" #qntd="ngModel" min="1" placeholder="Quantidade" [(ngModel)] ="produto.quantidade">
-        <small class="form-text text-danger font-weight-bold" *ngIf="qntd.invalid">Quantidade Inválida</small>
+        <small class="form-text text-danger font-weight-bold" *ngIf="qntd.value == '' ">Quantidade Inválida</small>
     </div>
     <div class="form-group">
         <label for=""></label>
         <input type="number" class="form-control" required name="valor" #vlr="ngModel" min="1" placeholder="Valor" [(ngModel)] ="produto.valor">
-        <small class="form-text text-danger font-weight-bold" *ngIf="vlr.invalid">Quantidade Inválida</small>
+        <small class="form-text text-danger font-weight-bold" *ngIf="vlr.value == '' ">Quantidade Inválida</small>
+    </div>
+    <div class="form-group">
+        <label for=""> Ativo </label>
+        <input type="checkbox" class="form-control" name="ativo" #atv="ngModel" [(ngModel)] ="produto.ativo">
+        <small class="form-text text-danger font-weight-bold"></small>
     </div>
     <div>
         <button type="submit" class="btn btn-primary" [disabled]="fc.invalid || qntd.invalid || vlr.invalid">Salvar</button>
