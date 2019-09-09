@@ -8,4 +8,5 @@ export class Endereco {
     unidade: string;
     ibge: string;
     gia: string;
+    erro: boolean = false;
 }
