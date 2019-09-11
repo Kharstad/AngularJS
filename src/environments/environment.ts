@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  serverAPI: "http://localhost:3000/"
+  serverAPI: "http://localhost:3000/",
+  firebaseConfig: {
+    apiKey: "AIzaSyBiHhs8w7dYG5u_AqDrv0gRqwcT5UIdIWk",
+    authDomain: "joola-angular.firebaseapp.com",
+    databaseURL: "https://joola-angular.firebaseio.com",
+    projectId: "joola-angular",
+    storageBucket: "",
+    messagingSenderId: "459158927749",
+    appId: "1:459158927749:web:bf7e51ef76a51439162cec"
+  }
 };
 
 /*

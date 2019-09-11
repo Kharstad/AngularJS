@@ -9,7 +9,7 @@ import { EnderecoService } from '../../services/endereco.service';
 })
 export class AddEnderecoComponent implements OnInit {
 
-  @Input() public endereco: Endereco = new Endereco;
+  @Input() public endereco: Endereco;
 
   constructor(
     protected enderecoService: EnderecoService
@@ -24,15 +24,23 @@ export class AddEnderecoComponent implements OnInit {
     this.enderecoService.getEndereco(cep).subscribe(
       res => {
         if (res.erro) {
-          this.endereco = new Endereco;
+          console.log("cep não localizado ", res);
         } else {
-          this.endereco = res;
+          this.endereco.cep = res.cep;
+          this.endereco.logradouro = res.logradouro;
+          this.endereco.bairro = res.bairro;
+          this.endereco.localidade = res.localidade;
+          this.endereco.uf = res.uf;
+          this.endereco.unidade = res.unidade;
+          this.endereco.gia = res.gia;
+          this.endereco.ibge = res.ibge;
+          this.endereco.complemento = res.complemento;
+          console.log(this.endereco);
         }
-        console.log(res);
       },
       err => {
         this.endereco = new Endereco;
-        console.log(err);
+        console.log("Cep inválido",err);
       }
     )
   }

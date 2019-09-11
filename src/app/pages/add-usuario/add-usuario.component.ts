@@ -12,7 +12,6 @@ import { Endereco } from '../../model/endereco';
 export class AddUsuarioComponent implements OnInit {
 
   usuario:Usuario = new Usuario;
-  public endereco: Endereco = new Endereco;
 
   constructor(
     public usuarioService: UsuarioService,
@@ -24,8 +23,7 @@ export class AddUsuarioComponent implements OnInit {
   }
   onsubmit(form){
     console.log(form);
-    this.usuario.endereco = this.endereco
-    this.usuarioService.save(this.usuario).subscribe(
+    this.usuarioService.save(this.usuario).then(
       res =>{
         console.log(res);
       },

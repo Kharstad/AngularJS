@@ -10,7 +10,13 @@ import { FormsModule } from "@angular/forms";
 import { ListUsuarioComponent } from './pages/list-usuario/list-usuario.component';
 import { AddProdutoComponent } from './pages/add-produto/add-produto.component';
 import { ListProdutoComponent } from './pages/list-produto/list-produto.component';
-import { AddEnderecoComponent } from './pages/add-endereco/add-endereco.component'
+import { AddEnderecoComponent } from './pages/add-endereco/add-endereco.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database'
+
 
 @NgModule({
   declarations: [
@@ -26,7 +32,10 @@ import { AddEnderecoComponent } from './pages/add-endereco/add-endereco.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
