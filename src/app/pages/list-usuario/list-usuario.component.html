@@ -1,28 +1,28 @@
-<section class="container">
-    <table *ngIf="usuarios | async as users" class="table">
-        <tr>
-            <th> ID </th>
-            <th> Nome </th>
-            <th> Email </th>
-            <th> CEP </th>
-            <th> Endereço </th>
-            <th> Bairro </th>
-            <th> Cidade </th>
-            <th> UF </th>
-            <th> / </th>
-            <th> X </th>
-        </tr>
-        <tr *ngFor="let u of users">
-            <td>{{u.id}}</td>
-            <td>{{u.nome}}</td>
-            <td>{{u.email}}</td>
-            <td>{{u.endereco.cep}}</td>
-            <td>{{u.endereco.logradouro}}</td>
-            <td>{{u.endereco.bairro}}</td>
-            <td>{{u.endereco.localidade}}</td>
-            <td>{{u.endereco.uf}}</td>
-            <td (click)="editar(u)">/</td>
-            <td (click)="apagar(u)">X</td>
-        </tr>
-    </table>
-</section>
+<section class="container"></section>
+<table *ngIf="usuarios | async as user" class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>cep</th>
+        <th>Endereço</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>uf</th>
+        <th>/</th>
+        <th>X</th>
+    </tr>
+    <tr *ngFor="let u of user">
+        <td>{{u.key}}</td>
+        <td>{{u.nome}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.endereco.cep}}</td>
+        <td>{{u.endereco.logradouro}}</td>
+        <td>{{u.endereco.bairro}}</td>
+        <td>{{u.endereco.localidade}}</td>
+        <td>{{u.endereco.uf}}</td>
+        <td (click)="editar(u)">/</td>
+        <td (click)="apagar(u)">X</td>
+
+    </tr>
+</table>

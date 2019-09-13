@@ -28,8 +28,8 @@ export class AddEnderecoComponent implements OnInit {
         } else {
           this.endereco.cep = res.cep;
           this.endereco.logradouro = res.logradouro;
-          this.endereco.bairro = res.bairro;
           this.endereco.localidade = res.localidade;
+          this.endereco.bairro = res.bairro;
           this.endereco.uf = res.uf;
           this.endereco.unidade = res.unidade;
           this.endereco.gia = res.gia;
