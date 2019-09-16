@@ -7,14 +7,18 @@
           <th> Quantidade </th>
           <th> Valor </th>
           <th> Status </th>
+          <th>Editar</th>
+          <th>Apagar</th>
       </tr>
       <tr *ngFor="let p of prods">
-          <td>{{p.id}}</td>
+          <td>{{p.key}}</td>
           <td>{{p.nome}}</td>
           <td>{{p.descricao}}</td>
           <td>{{p.quantidade}}</td>
           <td>{{p.valor}}</td>
           <td>{{p.ativo}}</td>
+          <td (click)="editar(p)">/</td>
+          <td (click)="apagar(p)">X</td>
       </tr>
   </table>
 </section>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from "../../model/produto";
 import { ProdutoService } from '../../services/produto.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-produto',
@@ -11,25 +11,53 @@ import { Router } from '@angular/router';
 export class AddProdutoComponent implements OnInit {
 
   produto:Produto = new Produto;
+  private id: string = null;
 
   constructor(
     public produtoService: ProdutoService,
-    protected router: Router
+    protected router: Router,
+    protected activeRouter: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.id =
+    this.activeRouter.snapshot.paramMap.get("id");
+    if(this.id){
+    this.produtoService.get(this.id).subscribe(
+      res=>{
+        this.produto = res;
+      }
+    );
+  } 
   }
   onsubmit(form){
     console.log(form);
-    this.produtoService.save(this.produto).subscribe(
-      res =>{
-        console.log(res);
-      },
-      err =>{
-        console.log(err);
-      }
-    );
-    this.produto = new Produto;
-    form.reset();
+    if (this.id) {
+      this.produtoService.update(this.produto, this.id).then(
+        res => {
+          console.log(res);
+          this.produto = new Produto;
+          form.reset();
+          //this.router.navigate(["/"]);
+          alert("Atualizado!");
+        },
+        err => {
+          console.log(err);
+        }
+      );      
+    } else {
+      this.produtoService.save(this.produto).then(
+        res => {
+          console.log(res);
+          this.produto = new Produto;
+          form.reset();
+          //this.router.navigate(["/"]);
+          alert("Cadastrado!");
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
   }
 }
